@@ -53,7 +53,7 @@ jobs:
         path: |
           data/
           logs/
-        retention-days: 1
+        retention-days: 3
     
     - name: Commit data to repo
       run: |

@@ -1,28 +1,14 @@
 # 张全蛋（张君雅）· 抖音主页档案
 <div align="center">
 
-![张君雅](data\MS4wLjABAAAA2FYVN1jBWaTVasx7wXcsK0rCPfSYixt5-J1pUegQIbA\avatar.jpeg)
+![张君雅](/data/MS4wLjABAAAA2FYVN1jBWaTVasx7wXcsK0rCPfSYixt5-J1pUegQIbA/avatar.jpeg)
 
 # 张全蛋
 > 抖音号：**51074sorry** | IP 属地：**四川**
 
-### 🌐 在线访问：[GitHub Pages 主页](https://1396605285.github.io/51074sorry/)
+### 🌐 在线访问：[作品数据在线浏览](https://1396605285.github.io/51074sorry/)
 
 </div>
-
----
-
-## ✨ 项目特点
-
-| 特性 | 说明 |
-|------|------|
-| 🚀 **纯静态部署** | 基于 GitHub Pages，无需服务器，零成本托管 |
-| 📱 **响应式设计** | 完美适配 PC、平板、手机多端访问 |
-| 🔍 **全文搜索** | 支持作品内容、评论、回复关键词搜索 |
-| 💬 **评论归档** | 完整保存所有评论与作者回复，支持精准定位 |
-| 📊 **数据可视化** | 直观展示作品时间线、发布规律、互动统计 |
-| ⚡ **懒加载优化** | 图片按需加载，流畅浏览海量内容 |
-| 🎨 **简洁界面** | 现代化 UI 设计，沉浸式阅读体验 |
 
 ---
 
