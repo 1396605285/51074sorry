@@ -114,15 +114,12 @@ class SiteBuilder:
             
             self._generate_user_summary(video_list_data)
             
-            existing_user = existing_users.get(user_dir, {})
-            avatar = existing_user.get('avatar', '')
-            if avatar:
-                self._copy_avatar(user_path, avatar)
+            self._copy_avatar(user_path, 'avatar.jpeg')
             
             user_data = {
                 'sec_uid': user_dir,
                 'nickname': existing_user.get('nickname', ''),
-                'avatar': f'data/{user_dir}/{avatar}' if avatar else '',
+                'avatar': f'data/{user_dir}/avatar.jpeg',
                 'total_videos': video_list_data['total_videos'],
                 'total_comments': video_list_data['total_comments']
             }
