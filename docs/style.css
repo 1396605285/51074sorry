@@ -426,7 +426,6 @@ body {
     border-radius: 16px;
     max-width: 900px;
     width: 100%;
-    margin: 20px auto;
     position: relative;
     max-height: calc(100vh - 40px);
     overflow-y: auto;
