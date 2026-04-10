@@ -114,6 +114,7 @@ class SiteBuilder:
             
             self._generate_user_summary(video_list_data)
             
+            existing_user = existing_users.get(user_dir, {})
             self._copy_avatar(user_path, 'avatar.jpeg')
             
             user_data = {
