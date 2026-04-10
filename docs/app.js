@@ -8,6 +8,7 @@ class App {
         this.currentSort = 'time-desc';
         this.selectedYear = '';
         this.baseUrl = '';
+        this.siteBase = '';
         this.commentsCache = {};
         this.searchResults = [];
         this.searchPage = 0;
@@ -21,7 +22,20 @@ class App {
         this.isSearching = false;
         this.currentSecUid = '';
         
+        this.detectSiteBase();
         this.init();
+    }
+    
+    detectSiteBase() {
+        const path = window.location.pathname;
+        if (path !== '/' && path.endsWith('/')) {
+            this.siteBase = path.slice(0, -1);
+        } else if (path !== '/') {
+            const lastSlash = path.lastIndexOf('/');
+            if (lastSlash > 0) {
+                this.siteBase = path.substring(0, lastSlash);
+            }
+        }
     }
     
     setUserHeader(user) {
@@ -30,7 +44,7 @@ class App {
         document.getElementById('header-title').textContent = nickname;
         
         if (user.avatar) {
-            const avatarUrl = `data/${user.sec_uid}/${user.avatar}`;
+            const avatarUrl = this.getFullUrl(user.avatar);
             document.getElementById('header-avatar').src = avatarUrl;
             document.getElementById('favicon').href = avatarUrl;
         }
@@ -41,7 +55,10 @@ class App {
         if (path.startsWith('http://') || path.startsWith('https://')) {
             return path;
         }
-        return path;
+        if (path.startsWith('/')) {
+            return this.siteBase + path;
+        }
+        return this.baseUrl + path;
     }
     
     getPlaceholderSvg(type) {
@@ -229,7 +246,7 @@ class App {
     
     async loadData() {
         try {
-            const usersIndexRes = await fetch('data/users_index.json');
+            const usersIndexRes = await fetch(`${this.siteBase}/data/users_index.json`);
             const usersIndex = await usersIndexRes.json();
             
             if (!usersIndex.users || usersIndex.users.length === 0) {
@@ -241,11 +258,11 @@ class App {
             
             this.setUserHeader(firstUser);
             
-            const videoListRes = await fetch(`data/${firstUser.sec_uid}/video_list.json`);
+            const videoListRes = await fetch(`${this.siteBase}/data/${firstUser.sec_uid}/video_list.json`);
             
             this.videoList = await videoListRes.json();
             
-            this.baseUrl = '';
+            this.baseUrl = this.videoList.base_url || '';
             this.videos = this.videoList.videos || [];
             this.filteredVideos = [...this.videos];
             
@@ -301,7 +318,7 @@ class App {
     
     async loadSummary() {
         try {
-            const response = await fetch(`data/${this.videoList.sec_uid}/summary.json`);
+            const response = await fetch(`${this.siteBase}/data/${this.videoList.sec_uid}/summary.json`);
             const summary = await response.json();
             document.getElementById('generated-time').textContent = summary.generated_at;
         } catch (error) {
@@ -475,7 +492,7 @@ class App {
         }
         
         try {
-            const response = await fetch(`data/${this.videoList.sec_uid}/comments/${awemeId}.json`);
+            const response = await fetch(`${this.siteBase}/data/${this.videoList.sec_uid}/comments/${awemeId}.json`);
             const data = await response.json();
             this.commentsCache[awemeId] = data.comments || [];
             return this.commentsCache[awemeId];
