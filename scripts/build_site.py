@@ -101,7 +101,7 @@ class SiteBuilder:
             
             video_list_data = {
                 'sec_uid': user_dir,
-                'base_url': f'/upload/{user_dir}/',
+                'base_url': f'upload/{user_dir}/',
                 'videos': video_list,
                 'total_videos': len(video_list),
                 'total_comments': sum(v['comment_count'] for v in video_list)
