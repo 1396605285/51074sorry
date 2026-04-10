@@ -816,7 +816,7 @@ class App {
         const isHidden = container.style.display === 'none';
         container.style.display = isHidden ? 'block' : 'none';
         if (isHidden) {
-            this.lazyLoadImages(container);
+            setTimeout(() => this.lazyLoadImages(container), 50);
         }
     }
     
