@@ -1,0 +1,5 @@
+2026-04-10 20:22:48 | [作品采集完成] total:395 | new:395 | new_csv:395 | new_db:395 | duration:19.1秒
+2026-04-10 20:45:24 | [评论采集完成] total:38304 | new:38304 | new_csv:38304 | new_db:35437 | videos:395 | duration:1356.1秒
+2026-04-10 21:43:55 | [评论采集完成] total:60593 | new:60593 | new_csv:60593 | new_db:58907 | videos:268 | duration:1935.6秒
+2026-04-10 22:10:21 | [评论采集完成] total:0 | new:0 | new_csv:0 | new_db:0 | videos:1 | duration:1.5秒
+2026-04-10 23:08:38 | [回复采集完成] total:21675 | new:19515 | new_csv:19515 | new_db:19245 | comments:6248 | videos:381 | duration:3457.8秒

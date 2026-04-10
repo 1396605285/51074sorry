@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作品评论回复</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" id="favicon" href="" type="image/jpeg">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <img id="header-avatar" src="" alt="头像" class="header-avatar">
+                <div class="header-text">
+                    <h1 id="header-title"></h1>
+                    <p class="subtitle">作品与评论数据展示</p>
+                </div>
+            </div>
+            <div class="stats" id="stats">
+                <div class="stat-item">
+                    <span class="stat-value" id="total-videos">-</span>
+                    <span class="stat-label">作品</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value" id="total-comments">-</span>
+                    <span class="stat-label">评论</span>
+                </div>
+            </div>
+        </header>
+
+        <nav class="nav">
+            <div class="search-box">
+                <div class="custom-select" id="search-type-wrapper">
+                    <div class="custom-select-trigger" data-value="nickname">
+                        <span>评论名字</span>
+                        <svg class="custom-select-arrow" viewBox="0 0 12 12"><path d="M6 8L1 3h10z"/></svg>
+                    </div>
+                    <div class="custom-select-options">
+                        <div class="custom-select-option active" data-value="nickname">评论名字</div>
+                        <div class="custom-select-option" data-value="content">评论内容</div>
+                    </div>
+                </div>
+                <input type="text" id="search-input" placeholder="检索评论回复">
+                <button id="search-btn">🔍</button>
+            </div>
+            <div class="filter-group">
+                <div class="custom-select filter-custom-select" id="year-select-wrapper">
+                    <div class="custom-select-trigger" data-value="">
+                        <span>年份</span>
+                        <svg class="custom-select-arrow" viewBox="0 0 12 12"><path d="M6 8L1 3h10z"/></svg>
+                    </div>
+                    <div class="custom-select-options" id="year-options">
+                        <div class="custom-select-option active" data-value="">年份</div>
+                    </div>
+                </div>
+                <div class="custom-select filter-custom-select" id="sort-select-wrapper">
+                    <div class="custom-select-trigger" data-value="time-desc">
+                        <span>最新</span>
+                        <svg class="custom-select-arrow" viewBox="0 0 12 12"><path d="M6 8L1 3h10z"/></svg>
+                    </div>
+                    <div class="custom-select-options">
+                        <div class="custom-select-option active" data-value="time-desc">最新</div>
+                        <div class="custom-select-option" data-value="time-asc">最早</div>
+                        <div class="custom-select-option" data-value="comments-desc">评论</div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="search-results" id="search-results" style="display: none;">
+            <div class="search-results-header">
+                <span class="search-results-title">搜索结果 (<span id="search-count">0</span>)</span>
+                <button class="search-close-btn" id="search-close-btn">✕</button>
+            </div>
+            <div class="search-results-list" id="search-results-list"></div>
+            <div class="search-pagination" id="search-pagination"></div>
+        </div>
+
+        <div class="filter-info" id="filter-info" style="display: none;"></div>
+
+        <main class="main-content">
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>加载中...</p>
+            </div>
+
+            <div class="video-grid" id="video-grid"></div>
+
+            <div class="load-more" id="load-more" style="display: none;">
+                <button id="load-more-btn">加载更多</button>
+            </div>
+        </main>
+
+        <div class="modal" id="video-modal">
+            <div class="modal-content">
+                <button class="modal-close" id="modal-close">&times;</button>
+                <div class="modal-body" id="modal-body"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>数据存档时间: <span id="generated-time">-</span></p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

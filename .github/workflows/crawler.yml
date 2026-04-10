@@ -1,0 +1,65 @@
+name: Daily Crawler
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        persist-credentials: true
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.x"
+    
+    - name: Install Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 'lts/*'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: Create config files from secrets
+      run: |
+        printf '%s' "${{ secrets.CONFIG_YAML }}" | base64 -d > config.yaml
+        printf '%s' "${{ secrets.COOKIE_YAML }}" | base64 -d > cookie.yaml
+    
+    - name: Run crawler
+      run: |
+        python main.py --all --limit 10
+      continue-on-error: true
+    
+    - name: Download media
+      run: |
+        python main.py --all --download-only
+      continue-on-error: true
+    
+    - name: Upload data artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: crawler-data-${{ github.run_number }}
+        path: |
+          data/
+          logs/
+        retention-days: 1
+    
+    - name: Commit data to repo
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add -f data/ upload/ logs/ 2>/dev/null || true
+        git diff --quiet && git diff --staged --quiet || git commit -m "Auto crawl: $(date '+%Y-%m-%d %H:%M')"
+        git push || echo "No changes to commit"
+      continue-on-error: true
