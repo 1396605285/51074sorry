@@ -122,7 +122,7 @@ class SiteBuilder:
             user_data = {
                 'sec_uid': user_dir,
                 'nickname': existing_user.get('nickname', ''),
-                'avatar': f'/data/{user_dir}/{avatar}' if avatar else '',
+                'avatar': f'data/{user_dir}/{avatar}' if avatar else '',
                 'total_videos': video_list_data['total_videos'],
                 'total_comments': video_list_data['total_comments']
             }
