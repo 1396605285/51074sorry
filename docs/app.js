@@ -653,7 +653,9 @@ class App {
         `;
         
         modal.classList.add('active');
+        const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
         document.body.style.overflow = 'hidden';
+        document.body.style.paddingRight = `${scrollbarWidth}px`;
         
         const comments = await this.loadComments(video.aweme_id);
         
@@ -824,6 +826,7 @@ class App {
         const modal = document.getElementById('video-modal');
         modal.classList.remove('active');
         document.body.style.overflow = '';
+        document.body.style.paddingRight = '';
     }
     
     openImageViewer(images, index) {
