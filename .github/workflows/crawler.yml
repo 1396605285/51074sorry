@@ -33,8 +33,8 @@ jobs:
     
     - name: Create config files from secrets
       run: |
-        printf '%s' "${{ secrets.CONFIG_YAML }}" | base64 -d > config.yaml
-        printf '%s' "${{ secrets.COOKIE_YAML }}" | base64 -d > cookie.yaml
+        echo "${{ secrets.CONFIG_YAML }}" > config.yaml
+        echo "${{ secrets.COOKIE_YAML }}" | base64 -d > cookie.yaml
     
     - name: Run crawler
       run: |
