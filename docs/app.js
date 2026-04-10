@@ -38,10 +38,10 @@ class App {
     
     getFullUrl(path) {
         if (!path) return '';
-        if (path.startsWith('http://') || path.startsWith('https://') || path.startsWith('/')) {
+        if (path.startsWith('http://') || path.startsWith('https://')) {
             return path;
         }
-        return this.baseUrl + path;
+        return path;
     }
     
     getPlaceholderSvg(type) {
@@ -245,7 +245,7 @@ class App {
             
             this.videoList = await videoListRes.json();
             
-            this.baseUrl = this.videoList.base_url || '';
+            this.baseUrl = '';
             this.videos = this.videoList.videos || [];
             this.filteredVideos = [...this.videos];
             
