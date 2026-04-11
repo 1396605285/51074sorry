@@ -26,7 +26,7 @@ class App {
     
     setUserHeader(user) {
         const nickname = user.nickname || '用户';
-        document.title = `${nickname}的作品评论回复`;
+        document.title = `${nickname}。`;
         document.getElementById('header-title').textContent = nickname;
         
         if (user.avatar) {
@@ -50,29 +50,6 @@ class App {
             avatar: `data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 28 28%22><rect fill=%22%23ddd%22 width=%2228%22 height=%2228%22/><text x=%2214%22 y=%2214%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-size=%2210%22>?</text></svg>`
         };
         return svgs[type] || '';
-    }
-    
-    lazyLoadImages(container) {
-        const images = container.querySelectorAll('img[data-src]');
-        if ('IntersectionObserver' in window) {
-            const modalBody = document.getElementById('modal-body');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.dataset.src;
-                        img.removeAttribute('data-src');
-                        observer.unobserve(img);
-                    }
-                });
-            }, { root: modalBody, rootMargin: '50px' });
-            images.forEach(img => observer.observe(img));
-        } else {
-            images.forEach(img => {
-                img.src = img.dataset.src;
-                img.removeAttribute('data-src');
-            });
-        }
     }
     
     formatDateTime(video) {
@@ -304,14 +281,112 @@ class App {
             const response = await fetch(`data/${this.videoList.sec_uid}/summary.json`);
             const summary = await response.json();
             document.getElementById('generated-time').textContent = summary.generated_at;
+            
+            if (summary.active_repliers && summary.active_repliers.length > 0) {
+                const shuffled = [...summary.active_repliers].sort(() => Math.random() - 0.5).slice(0, 3);
+                this.renderActiveRepliers(shuffled);
+            }
         } catch (error) {
             console.error('加载摘要失败:', error);
         }
     }
     
+    formatNumber(num) {
+        if (!num) return '0';
+        num = parseInt(num);
+        if (num >= 10000) {
+            const wan = num / 10000;
+            return wan >= 10 ? `${Math.round(wan)}万` : `${wan.toFixed(1).replace(/\.0$/, '')}万`;
+        }
+        return num.toString();
+    }
+    
     updateStats() {
-        document.getElementById('total-videos').textContent = this.videoList.total_videos || 0;
-        document.getElementById('total-comments').textContent = this.videoList.total_comments || 0;
+        document.getElementById('total-videos').textContent = this.formatNumber(this.videoList.total_videos);
+        document.getElementById('total-comments').textContent = this.formatNumber(this.videoList.total_comments);
+    }
+    
+    renderActiveRepliers(repliers) {
+        const statsEl = document.getElementById('stats');
+        let container = document.getElementById('active-repliers');
+        
+        if (!container) {
+            container = document.createElement('div');
+            container.id = 'active-repliers';
+            container.className = 'active-repliers';
+            statsEl.appendChild(container);
+        }
+        
+        const avatarPlaceholder = this.getPlaceholderSvg('avatar');
+        
+        container.innerHTML = `
+            <div class="repliers-label">活跃用户</div>
+            <div class="repliers-avatars">
+                ${repliers.map(r => `
+                    <div class="replier-item" onclick="app.showReplierPopover(this, '${this.escapeJsString(r.nickname)}', ${r.count})">
+                        <img class="replier-avatar" src="${r.avatar ? this.getFullUrl(r.avatar) : avatarPlaceholder}" 
+                             alt="${this.escapeHtml(r.nickname)}" 
+                             onerror="this.src='${avatarPlaceholder}'">
+                    </div>
+                `).join('')}
+            </div>
+        `;
+    }
+    
+    showReplierPopover(element, nickname, count) {
+        this.hideReplierPopover();
+        
+        const popover = document.createElement('div');
+        popover.className = 'replier-popover';
+        popover.innerHTML = `
+            <div class="replier-popover-name" onclick="app.searchByNickname('${this.escapeJsString(nickname)}')">${this.escapeHtml(nickname)}</div>
+            <div class="replier-popover-count">${count} 条回复</div>
+        `;
+        
+        element.appendChild(popover);
+        element.classList.add('active');
+        
+        const popoverRect = popover.getBoundingClientRect();
+        const windowWidth = window.innerWidth;
+        
+        if (popoverRect.left < 10) {
+            popover.style.left = '0';
+            popover.style.transform = 'translateX(0)';
+            popover.classList.add('arrow-left');
+        } else if (popoverRect.right > windowWidth - 10) {
+            popover.style.left = 'auto';
+            popover.style.right = '0';
+            popover.style.transform = 'none';
+            popover.classList.add('arrow-right');
+        }
+        
+        setTimeout(() => {
+            document.addEventListener('click', this._replierPopoverHandler = (e) => {
+                if (!element.contains(e.target)) {
+                    this.hideReplierPopover();
+                }
+            });
+        }, 0);
+    }
+    
+    searchByNickname(nickname) {
+        this.hideReplierPopover();
+        document.querySelector('#search-type-wrapper .custom-select-trigger').dataset.value = 'nickname';
+        document.querySelector('#search-type-wrapper .custom-select-trigger span').textContent = '昵称';
+        document.getElementById('search-input').value = nickname;
+        this.search();
+    }
+    
+    hideReplierPopover() {
+        document.querySelectorAll('.replier-item.active').forEach(el => {
+            el.classList.remove('active');
+            const popover = el.querySelector('.replier-popover');
+            if (popover) popover.remove();
+        });
+        if (this._replierPopoverHandler) {
+            document.removeEventListener('click', this._replierPopoverHandler);
+            this._replierPopoverHandler = null;
+        }
     }
     
     async search() {
@@ -432,7 +507,7 @@ class App {
             });
             
             if (totalPages > 1) {
-                pagination.innerHTML = this.createPaginationHtml(this.searchPage, totalPages, totalResults, `goToSearchPage(\${page}, '${query}')`);
+                pagination.innerHTML = this.createPaginationHtml(this.searchPage, totalPages, totalResults, `goToSearchPage(\${page}, '${this.escapeJsString(query)}')`);
             } else {
                 pagination.innerHTML = '';
             }
@@ -644,7 +719,7 @@ class App {
             ${imagesHtml}
             <div class="modal-desc">${this.escapeHtml(video.desc || '无描述')}</div>
             <div class="modal-meta">
-                <span>📅 发布时间: ${video.create_time_str || '未知'}</span>
+                <span>📅 发布时间: ${this.escapeHtml(video.create_time_str || '未知')}</span>
                 <span>💬 评论数: ${video.comment_count || 0}</span>
             </div>
             <div class="comments-section">
@@ -671,10 +746,14 @@ class App {
         const totalComments = this.currentComments.length;
         const totalPages = Math.ceil(totalComments / this.commentsPageSize);
         
+        const hotCommentsCount = Math.min(5, Math.ceil(totalComments * 0.15));
+        
+        const sortedComments = this.getSortedComments(this.currentComments, hotCommentsCount);
+        
         if (highlightCid && this.commentsPage === 0) {
             let targetPage = 0;
-            for (let i = 0; i < this.currentComments.length; i++) {
-                const comment = this.currentComments[i];
+            for (let i = 0; i < sortedComments.length; i++) {
+                const comment = sortedComments[i];
                 if (highlightType === 'comment' && comment.cid === highlightCid) {
                     targetPage = Math.floor(i / this.commentsPageSize);
                     break;
@@ -691,12 +770,16 @@ class App {
         if (totalComments > 0) {
             const start = this.commentsPage * this.commentsPageSize;
             const end = start + this.commentsPageSize;
-            const pageComments = this.currentComments.slice(start, end);
+            const pageComments = sortedComments.slice(start, end);
             
             commentsHtml = `
                 <div class="comments-section">
                     <h3 class="comments-title">💬 评论 (${totalComments})</h3>
-                    ${pageComments.map(comment => this.createCommentHtml(comment, highlightCid, parentCid, highlightType)).join('')}
+                    ${pageComments.map((comment, index) => {
+                        const globalIndex = start + index;
+                        const isHot = globalIndex < hotCommentsCount;
+                        return this.createCommentHtml(comment, highlightCid, parentCid, highlightType, isHot);
+                    }).join('')}
                     ${totalPages > 1 ? this.createCommentsPagination(totalPages, totalComments) : ''}
                 </div>
             `;
@@ -712,11 +795,6 @@ class App {
         const commentsSection = modalBody.querySelector('.comments-section');
         if (commentsSection) {
             commentsSection.outerHTML = commentsHtml;
-        }
-        
-        const newCommentsSection = modalBody.querySelector('.comments-section');
-        if (newCommentsSection) {
-            this.lazyLoadImages(newCommentsSection);
         }
         
         if (highlightCid) {
@@ -742,6 +820,28 @@ class App {
         }
     }
     
+    getSortedComments(comments, hotCount) {
+        const commentsCopy = [...comments];
+        
+        const sortedByReply = commentsCopy.sort((a, b) => {
+            const replyA = (a.reply_count || 0);
+            const replyB = (b.reply_count || 0);
+            return replyB - replyA;
+        });
+        
+        const hotComments = sortedByReply.slice(0, hotCount);
+        const hotCids = new Set(hotComments.map(c => c.cid));
+        
+        const remainingComments = comments.filter(c => !hotCids.has(c.cid));
+        remainingComments.sort((a, b) => {
+            const timeA = parseInt(a.create_time) || 0;
+            const timeB = parseInt(b.create_time) || 0;
+            return timeB - timeA;
+        });
+        
+        return [...hotComments, ...remainingComments];
+    }
+    
     createCommentsPagination(totalPages, totalComments) {
         const paginationInner = this.createPaginationHtml(this.commentsPage, totalPages, totalComments, 'goToCommentsPage(${page})');
         return `<div class="comments-pagination">${paginationInner}</div>`;
@@ -753,7 +853,7 @@ class App {
         document.querySelector('.comments-section').scrollIntoView({ behavior: 'smooth' });
     }
     
-    createCommentHtml(comment, highlightCid = null, parentCid = null, highlightType = null) {
+    createCommentHtml(comment, highlightCid = null, parentCid = null, highlightType = null, isHot = false) {
         const repliesCount = comment.replies ? comment.replies.length : 0;
         const isHighlighted = highlightCid === comment.cid && highlightType === 'comment';
         const shouldExpandReplies = highlightType === 'reply' && parentCid === comment.cid;
@@ -764,19 +864,31 @@ class App {
         let repliesHtml = '';
         
         if (comment.replies && comment.replies.length > 0) {
+            const sortedReplies = [...comment.replies].sort((a, b) => {
+                const timeA = parseInt(a.create_time) || 0;
+                const timeB = parseInt(b.create_time) || 0;
+                return timeA - timeB;
+            });
+            
             repliesHtml = `
                 <div class="replies-section">
-                    ${comment.replies.map(reply => {
+                    ${sortedReplies.map(reply => {
                         const isReplyHighlighted = highlightType === 'reply' && highlightCid === reply.cid;
                         const replyText = reply.text ? this.escapeHtml(reply.text) : emptyTextPlaceholder;
                         return `
                             <div class="reply-item" id="reply-${reply.cid}" style="${isReplyHighlighted ? 'background: #fff3cd;' : ''}">
                                 <div class="reply-header">
-                                    ${reply.user_avatar ? `<img class="reply-avatar lazy-avatar" src="${avatarPlaceholder}" data-src="${this.getFullUrl(reply.user_avatar)}" alt="头像" onerror="this.style.display='none'">` : ''}
-                                    <span class="reply-nickname">${this.escapeHtml(reply.user_nickname || '匿名')}</span>
-                                    ${reply.ip_label ? `<span class="reply-ip">${reply.ip_label}</span>` : ''}
-                                    ${reply.reply_to_username ? `<span class="reply-to">回复 @${this.escapeHtml(reply.reply_to_username)}</span>` : ''}
-                                    <span class="reply-time">${reply.create_time_str || ''}</span>
+                                    ${reply.user_avatar ? `<img class="reply-avatar" src="${this.getFullUrl(reply.user_avatar)}" alt="头像" onerror="this.src='${avatarPlaceholder}'">` : ''}
+                                    <div class="reply-user">
+                                        <div class="reply-user-row">
+                                            <span class="reply-user-info">
+                                                <span class="reply-nickname copyable" onclick="app.copyToClipboard('${this.escapeJsString(reply.user_nickname || '匿名')}', this)">${this.escapeHtml(reply.user_nickname || '匿名')}</span>
+                                                ${reply.ip_label ? `<span class="reply-ip">${reply.ip_label}</span>` : ''}
+                                            </span>
+                                            ${reply.reply_to_username ? `<span class="reply-to">回复 @<span class="copyable" onclick="app.copyToClipboard('${this.escapeJsString(reply.reply_to_username)}', this)">${this.escapeHtml(reply.reply_to_username)}</span></span>` : ''}
+                                        </div>
+                                        <span class="reply-time">${reply.create_time_str || ''}</span>
+                                    </div>
                                 </div>
                                 <div class="reply-text">${replyText}</div>
                             </div>
@@ -789,20 +901,24 @@ class App {
         const commentText = comment.text ? this.escapeHtml(comment.text) : emptyTextPlaceholder;
         
         return `
-            <div class="comment-item" id="comment-${comment.cid}" style="${isHighlighted ? 'background: #fff3cd;' : ''}">
+            <div class="comment-item ${isHot ? 'hot-comment' : ''}" id="comment-${comment.cid}" style="${isHighlighted ? 'background: #fff3cd;' : ''}">
                 <div class="comment-header">
-                    ${comment.user_avatar ? `<img class="comment-avatar lazy-avatar" src="${avatarPlaceholder}" data-src="${this.getFullUrl(comment.user_avatar)}" alt="头像" onerror="this.src='${avatarPlaceholder}'">` : ''}
+                    ${comment.user_avatar ? `<img class="comment-avatar" src="${this.getFullUrl(comment.user_avatar)}" alt="头像" onerror="this.src='${avatarPlaceholder}'">` : ''}
                     <div class="comment-user">
-                        <span class="comment-nickname">${this.escapeHtml(comment.user_nickname || '匿名')}</span>
-                        ${comment.ip_label ? `<span class="comment-ip">${comment.ip_label}</span>` : ''}
+                        <div class="comment-user-row">
+                            <span class="comment-user-info">
+                                <span class="comment-nickname copyable" onclick="app.copyToClipboard('${this.escapeJsString(comment.user_nickname || '匿名')}', this)">${this.escapeHtml(comment.user_nickname || '匿名')}</span>
+                                ${comment.ip_label ? `<span class="comment-ip">${comment.ip_label}</span>` : ''}
+                            </span>
+                        </div>
+                        <span class="comment-time">${comment.create_time_str || ''}</span>
                     </div>
-                    <span class="comment-time">${comment.create_time_str || ''}</span>
                 </div>
                 <div class="comment-text">${commentText}</div>
                 ${repliesCount > 0 ? `
                     <div class="replies-toggle-wrapper">
                         <span class="replies-toggle" onclick="app.toggleReplies(this)">
-                            📝 ${repliesCount} 条回复
+                            展开 ${repliesCount} 条回复
                         </span>
                     </div>
                     <div class="replies-container" style="display:${shouldExpandReplies ? 'block' : 'none'};">
@@ -817,9 +933,20 @@ class App {
         const container = toggle.parentElement.nextElementSibling;
         const isHidden = container.style.display === 'none';
         container.style.display = isHidden ? 'block' : 'none';
-        if (isHidden) {
-            setTimeout(() => this.lazyLoadImages(container), 50);
-        }
+    }
+    
+    copyToClipboard(text, element) {
+        navigator.clipboard.writeText(text).then(() => {
+            const originalText = element.textContent;
+            element.textContent = '已复制';
+            element.classList.add('copied');
+            setTimeout(() => {
+                element.textContent = originalText;
+                element.classList.remove('copied');
+            }, 1000);
+        }).catch(err => {
+            console.error('复制失败:', err);
+        });
     }
     
     closeModal() {
@@ -839,16 +966,23 @@ class App {
             viewer.id = 'image-viewer';
             viewer.className = 'image-viewer';
             viewer.innerHTML = `
-                <button class="image-viewer-close" onclick="app.closeImageViewer()">&times;</button>
-                <button class="image-nav prev" onclick="app.prevImage()">‹</button>
-                <img id="viewer-image" src="" alt="图片预览">
-                <button class="image-nav next" onclick="app.nextImage()">›</button>
+                <button class="image-viewer-close" onclick="event.stopPropagation(); app.closeImageViewer()">&times;</button>
+                <button class="image-nav prev" onclick="event.stopPropagation(); app.prevImage()"></button>
+                <img id="viewer-image" src="" alt="图片预览" onclick="event.stopPropagation(); app.closeImageViewer()">
+                <button class="image-nav next" onclick="event.stopPropagation(); app.nextImage()"></button>
             `;
+            viewer.addEventListener('click', () => this.closeImageViewer());
             document.body.appendChild(viewer);
         }
         
         document.getElementById('viewer-image').src = images[index];
         viewer.classList.add('active');
+        
+        const prevBtn = viewer.querySelector('.image-nav.prev');
+        const nextBtn = viewer.querySelector('.image-nav.next');
+        const hasMultiple = images.length > 1;
+        prevBtn.style.display = hasMultiple ? 'flex' : 'none';
+        nextBtn.style.display = hasMultiple ? 'flex' : 'none';
     }
     
     closeImageViewer() {
@@ -904,6 +1038,11 @@ class App {
         const div = document.createElement('div');
         div.textContent = text;
         return div.innerHTML;
+    }
+    
+    escapeJsString(str) {
+        if (!str) return '';
+        return str.replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/"/g, '\\"');
     }
 }
 
