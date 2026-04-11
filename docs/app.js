@@ -719,7 +719,7 @@ class App {
             ${imagesHtml}
             <div class="modal-desc">${this.escapeHtml(video.desc || '无描述')}</div>
             <div class="modal-meta">
-                <span>📅 发布时间: ${this.escapeHtml(video.create_time_str || '未知')}</span>
+                <span>📅 时间: ${this.escapeHtml(video.create_time_str || '未知')}</span>
                 <span>💬 评论数: ${video.comment_count || 0}</span>
             </div>
             <div class="comments-section">
