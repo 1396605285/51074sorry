@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>作品评论回复</title>
+    <title></title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" id="favicon" href="" type="image/jpeg">
 </head>
@@ -33,16 +33,16 @@
             <div class="search-box">
                 <div class="custom-select" id="search-type-wrapper">
                     <div class="custom-select-trigger" data-value="nickname">
-                        <span>评论名字</span>
+                        <span>昵称</span>
                         <svg class="custom-select-arrow" viewBox="0 0 12 12"><path d="M6 8L1 3h10z"/></svg>
                     </div>
                     <div class="custom-select-options">
-                        <div class="custom-select-option active" data-value="nickname">评论名字</div>
-                        <div class="custom-select-option" data-value="content">评论内容</div>
+                        <div class="custom-select-option active" data-value="nickname">昵称</div>
+                        <div class="custom-select-option" data-value="content">内容</div>
                     </div>
                 </div>
-                <input type="text" id="search-input" placeholder="检索评论回复">
-                <button id="search-btn">🔍</button>
+                <input type="text" id="search-input" placeholder="搜索评论回复">
+                <button id="search-btn" aria-label="搜索">🔍</button>
             </div>
             <div class="filter-group">
                 <div class="custom-select filter-custom-select" id="year-select-wrapper">
@@ -51,18 +51,18 @@
                         <svg class="custom-select-arrow" viewBox="0 0 12 12"><path d="M6 8L1 3h10z"/></svg>
                     </div>
                     <div class="custom-select-options" id="year-options">
-                        <div class="custom-select-option active" data-value="">年份</div>
+                        <div class="custom-select-option active" data-value="">年份选择</div>
                     </div>
                 </div>
                 <div class="custom-select filter-custom-select" id="sort-select-wrapper">
                     <div class="custom-select-trigger" data-value="time-desc">
-                        <span>最新</span>
+                        <span>最新发布</span>
                         <svg class="custom-select-arrow" viewBox="0 0 12 12"><path d="M6 8L1 3h10z"/></svg>
                     </div>
                     <div class="custom-select-options">
-                        <div class="custom-select-option active" data-value="time-desc">最新</div>
-                        <div class="custom-select-option" data-value="time-asc">最早</div>
-                        <div class="custom-select-option" data-value="comments-desc">评论</div>
+                        <div class="custom-select-option active" data-value="time-desc">最新发布</div>
+                        <div class="custom-select-option" data-value="time-asc">最早发布</div>
+                        <div class="custom-select-option" data-value="comments-desc">评论最多</div>
                     </div>
                 </div>
             </div>
@@ -88,13 +88,13 @@
             <div class="video-grid" id="video-grid"></div>
 
             <div class="load-more" id="load-more" style="display: none;">
-                <button id="load-more-btn">加载更多</button>
+                <button id="load-more-btn" aria-label="加载更多">加载更多</button>
             </div>
         </main>
 
         <div class="modal" id="video-modal">
             <div class="modal-content">
-                <button class="modal-close" id="modal-close">&times;</button>
+                <button class="modal-close" id="modal-close" aria-label="关闭" title="关闭">&times;</button>
                 <div class="modal-body" id="modal-body"></div>
             </div>
         </div>
