@@ -41,12 +41,16 @@ jobs:
       run: |
         python scripts/build_site.py
     
+    - name: Update README with latest data
+      run: |
+        python scripts/update_readme.py
+    
     - name: Commit built data to repo
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add docs/data/ 2>/dev/null || true
-        git diff --quiet && git diff --staged --quiet || git commit -m "Build site data: $(date '+%Y-%m-%d %H:%M')"
+        git add docs/data/ README.md 2>/dev/null || true
+        git diff --quiet && git diff --staged --quiet || git commit -m "Update site data and README: $(date '+%Y-%m-%d %H:%M')"
         git push || echo "No changes to commit"
     
     - name: Prepare deployment directory

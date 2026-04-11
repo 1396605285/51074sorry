@@ -3,9 +3,14 @@
     {
       "sec_uid": "MS4wLjABAAAA2FYVN1jBWaTVasx7wXcsK0rCPfSYixt5-J1pUegQIbA",
       "nickname": "张全蛋",
-      "avatar": "data/MS4wLjABAAAA2FYVN1jBWaTVasx7wXcsK0rCPfSYixt5-J1pUegQIbA/avatar.jpeg",
       "total_videos": 395,
-      "total_comments": 98915
+      "total_comments": 121237,
+      "author_replies": 1421,
+      "participants_count": 43373,
+      "latest_video": {
+        "date": "2026-04-10",
+        "title": "[作者偷懒 没有写标题]"
+      }
     }
   ]
 }

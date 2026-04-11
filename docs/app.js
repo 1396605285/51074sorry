@@ -29,16 +29,14 @@ class App {
         document.title = `${nickname}。`;
         document.getElementById('header-title').textContent = nickname;
         
-        if (user.avatar) {
-            const avatarUrl = this.getFullUrl(user.avatar);
-            const avatarEl = document.getElementById('header-avatar');
-            avatarEl.src = avatarUrl;
-            document.getElementById('favicon').href = avatarUrl;
-            
-            avatarEl.onerror = () => {
-                avatarEl.src = this.getPlaceholderSvg('avatar');
-            };
-        }
+        const avatarUrl = `data/${user.sec_uid}/avatar.jpeg`;
+        const avatarEl = document.getElementById('header-avatar');
+        avatarEl.src = avatarUrl;
+        document.getElementById('favicon').href = avatarUrl;
+        
+        avatarEl.onerror = () => {
+            avatarEl.src = this.getPlaceholderSvg('avatar');
+        };
     }
     
     getFullUrl(path) {
@@ -692,12 +690,13 @@ class App {
         const isMobile = window.innerWidth <= 768;
         
         if (displayImages.length > 0) {
+            const thumbPlaceholder = this.getPlaceholderSvg('thumb');
             if (displayImages.length > 1) {
                 imagesHtml = `
                     <div class="image-carousel" id="image-carousel">
                         <div class="carousel-container" id="carousel-container">
                             ${displayImages.map((img, index) => `
-                                <img src="${img}" alt="图片${index + 1}" loading="lazy" onclick="app.openImageViewer(${JSON.stringify(displayImages).replace(/"/g, '&quot;')}, ${index})">
+                                <img src="${img}" alt="图片${index + 1}" loading="lazy" onerror="this.src='${thumbPlaceholder}'" onclick="app.openImageViewer(${JSON.stringify(displayImages).replace(/"/g, '&quot;')}, ${index})">
                             `).join('')}
                         </div>
                         <button class="carousel-nav prev" onclick="app.carouselPrev()">‹</button>
@@ -714,7 +713,7 @@ class App {
             } else {
                 imagesHtml = `
                     <div class="modal-images">
-                        <img src="${displayImages[0]}" alt="图片1" loading="lazy" onclick="app.openImageViewer(${JSON.stringify(displayImages).replace(/"/g, '&quot;')}, 0)">
+                        <img src="${displayImages[0]}" alt="图片1" loading="lazy" onerror="this.src='${thumbPlaceholder}'" onclick="app.openImageViewer(${JSON.stringify(displayImages).replace(/"/g, '&quot;')}, 0)">
                     </div>
                 `;
             }
@@ -965,6 +964,8 @@ class App {
         this.viewerImages = images;
         this.viewerIndex = index;
         
+        const thumbPlaceholder = this.getPlaceholderSvg('thumb');
+        
         let viewer = document.getElementById('image-viewer');
         if (!viewer) {
             viewer = document.createElement('div');
@@ -973,14 +974,16 @@ class App {
             viewer.innerHTML = `
                 <button class="image-viewer-close" onclick="event.stopPropagation(); app.closeImageViewer()">&times;</button>
                 <button class="image-nav prev" onclick="event.stopPropagation(); app.prevImage()"></button>
-                <img id="viewer-image" src="" alt="图片预览" onclick="event.stopPropagation(); app.closeImageViewer()">
+                <img id="viewer-image" src="" alt="图片预览" onerror="this.src='${thumbPlaceholder}'" onclick="event.stopPropagation(); app.closeImageViewer()">
                 <button class="image-nav next" onclick="event.stopPropagation(); app.nextImage()"></button>
             `;
             viewer.addEventListener('click', () => this.closeImageViewer());
             document.body.appendChild(viewer);
         }
         
-        document.getElementById('viewer-image').src = images[index];
+        const viewerImg = document.getElementById('viewer-image');
+        viewerImg.src = images[index];
+        viewerImg.onerror = () => { viewerImg.src = thumbPlaceholder; };
         viewer.classList.add('active');
         
         const prevBtn = viewer.querySelector('.image-nav.prev');
@@ -999,12 +1002,16 @@ class App {
     
     prevImage() {
         this.viewerIndex = (this.viewerIndex - 1 + this.viewerImages.length) % this.viewerImages.length;
-        document.getElementById('viewer-image').src = this.viewerImages[this.viewerIndex];
+        const img = document.getElementById('viewer-image');
+        img.src = this.viewerImages[this.viewerIndex];
+        img.onerror = () => { img.src = this.getPlaceholderSvg('thumb'); };
     }
     
     nextImage() {
         this.viewerIndex = (this.viewerIndex + 1) % this.viewerImages.length;
-        document.getElementById('viewer-image').src = this.viewerImages[this.viewerIndex];
+        const img = document.getElementById('viewer-image');
+        img.src = this.viewerImages[this.viewerIndex];
+        img.onerror = () => { img.src = this.getPlaceholderSvg('thumb'); };
     }
     
     carouselPrev() {

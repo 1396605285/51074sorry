@@ -74,13 +74,22 @@ class SiteBuilder:
             comments_data = self._load_all_comments(user_path)
             
             active_repliers = self._calculate_active_repliers(comments_data)
+            author_replies = self._count_author_replies(comments_data)
+            participants_count = self._count_participants(user_dir)
             
             video_list = []
+            total_reply_count = 0
             
             for video in videos:
                 aweme_id = video['aweme_id']
                 comments = comments_data.get(aweme_id, [])
                 video['comment_count'] = len(comments)
+                
+                reply_count = 0
+                for comment in comments:
+                    reply_count += len(comment.get('replies', []))
+                video['reply_count'] = reply_count
+                total_reply_count += reply_count
                 
                 year_month = timestamp_to_year(video.get('create_time'))
                 video['images'] = self._parse_images_to_path(video.get('images', ''), 'images', year_month)
@@ -106,7 +115,7 @@ class SiteBuilder:
                 'base_url': f'upload/{user_dir}/',
                 'videos': video_list,
                 'total_videos': len(video_list),
-                'total_comments': sum(v['comment_count'] for v in video_list)
+                'total_comments': sum(v['comment_count'] for v in video_list) + total_reply_count
             }
             
             user_video_list_file = os.path.join(self.current_user_dir, 'video_list.json')
@@ -116,15 +125,20 @@ class SiteBuilder:
             
             self._generate_user_summary(video_list_data, active_repliers)
             
+            self._copy_avatar(user_path)
+            
             existing_user = existing_users.get(user_dir, {})
-            self._copy_avatar(user_path, 'avatar.jpeg')
+            
+            latest_video = self._get_latest_video_info(video_list)
             
             user_data = {
                 'sec_uid': user_dir,
                 'nickname': existing_user.get('nickname', ''),
-                'avatar': f'data/{user_dir}/avatar.jpeg',
                 'total_videos': video_list_data['total_videos'],
-                'total_comments': video_list_data['total_comments']
+                'total_comments': video_list_data['total_comments'],
+                'author_replies': author_replies,
+                'participants_count': participants_count,
+                'latest_video': latest_video
             }
             all_users_data.append(user_data)
         
@@ -148,10 +162,10 @@ class SiteBuilder:
                 print(f"读取现有用户索引失败: {e}")
         return {}
     
-    def _copy_avatar(self, user_path: str, avatar: str):
-        src_avatar = os.path.join(user_path, avatar)
+    def _copy_avatar(self, user_path: str):
+        src_avatar = os.path.join(user_path, 'avatar.jpeg')
         if os.path.exists(src_avatar):
-            dst_avatar = os.path.join(self.current_user_dir, avatar)
+            dst_avatar = os.path.join(self.current_user_dir, 'avatar.jpeg')
             shutil.copy2(src_avatar, dst_avatar)
             print(f"用户头像已复制到: {dst_avatar}")
     
@@ -302,6 +316,53 @@ class SiteBuilder:
         
         sorted_repliers = sorted(replier_count.values(), key=lambda x: x['count'], reverse=True)
         return sorted_repliers[:15]
+    
+    def _count_author_replies(self, comments_data: Dict[str, List[Dict]]) -> int:
+        count = 0
+        author_nickname = '张全蛋。'
+        
+        for aweme_id, comments in comments_data.items():
+            for comment in comments:
+                if comment.get('user_nickname') == author_nickname:
+                    count += 1
+                for reply in comment.get('replies', []):
+                    if reply.get('user_nickname') == author_nickname:
+                        count += 1
+        
+        return count
+    
+    def _count_participants(self, user_dir: str) -> int:
+        avatars_dir = os.path.join(self.upload_dir, user_dir, 'avatars')
+        if not os.path.exists(avatars_dir):
+            return 0
+        
+        total_files = 0
+        for year_dir in os.listdir(avatars_dir):
+            year_path = os.path.join(avatars_dir, year_dir)
+            if os.path.isdir(year_path):
+                for f in os.listdir(year_path):
+                    if os.path.isfile(os.path.join(year_path, f)):
+                        total_files += 1
+        
+        return total_files
+    
+    def _get_latest_video_info(self, video_list: List[Dict]) -> Dict:
+        if not video_list:
+            return {'date': '', 'title': ''}
+        latest = video_list[0]
+        create_time = latest.get('create_time', 0)
+        if create_time:
+            try:
+                dt = datetime.fromtimestamp(int(create_time), BEIJING_TZ)
+                date_str = dt.strftime('%Y-%m-%d')
+            except (ValueError, TypeError):
+                date_str = ''
+        else:
+            date_str = ''
+        return {
+            'date': date_str,
+            'title': latest.get('desc', '')[:100] if latest.get('desc') else '[作者偷懒 没有写标题]'
+        }
     
     def _generate_user_summary(self, video_list_data: Dict, active_repliers: List[Dict]):
         summary = {
