@@ -30,9 +30,14 @@ class App {
         document.getElementById('header-title').textContent = nickname;
         
         if (user.avatar) {
-            const avatarUrl = user.avatar;
-            document.getElementById('header-avatar').src = avatarUrl;
+            const avatarUrl = this.getFullUrl(user.avatar);
+            const avatarEl = document.getElementById('header-avatar');
+            avatarEl.src = avatarUrl;
             document.getElementById('favicon').href = avatarUrl;
+            
+            avatarEl.onerror = () => {
+                avatarEl.src = this.getPlaceholderSvg('avatar');
+            };
         }
     }
     
