@@ -73,6 +73,8 @@ class SiteBuilder:
             videos = self._load_videos(videos_csv)
             comments_data = self._load_all_comments(user_path)
             
+            active_repliers = self._calculate_active_repliers(comments_data)
+            
             video_list = []
             
             for video in videos:
@@ -112,7 +114,7 @@ class SiteBuilder:
                 json.dump(video_list_data, f, ensure_ascii=False, indent=2)
             print(f"用户视频列表已保存到: {user_video_list_file}")
             
-            self._generate_user_summary(video_list_data)
+            self._generate_user_summary(video_list_data, active_repliers)
             
             existing_user = existing_users.get(user_dir, {})
             self._copy_avatar(user_path, 'avatar.jpeg')
@@ -282,10 +284,30 @@ class SiteBuilder:
         
         return paths
     
-    def _generate_user_summary(self, video_list_data: Dict):
+    def _calculate_active_repliers(self, comments_data: Dict[str, List[Dict]]) -> List[Dict]:
+        replier_count = {}
+        
+        for aweme_id, comments in comments_data.items():
+            for comment in comments:
+                replies = comment.get('replies', [])
+                for reply in replies:
+                    nickname = reply.get('user_nickname', '匿名')
+                    if nickname not in replier_count:
+                        replier_count[nickname] = {
+                            'nickname': nickname,
+                            'avatar': reply.get('user_avatar', ''),
+                            'count': 0
+                        }
+                    replier_count[nickname]['count'] += 1
+        
+        sorted_repliers = sorted(replier_count.values(), key=lambda x: x['count'], reverse=True)
+        return sorted_repliers[:15]
+    
+    def _generate_user_summary(self, video_list_data: Dict, active_repliers: List[Dict]):
         summary = {
             'total_videos': video_list_data['total_videos'],
             'total_comments': video_list_data['total_comments'],
+            'active_repliers': active_repliers,
             'generated_at': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         }
         
