@@ -46,6 +46,10 @@ def update_readme(user_data: dict, readme_path: str = 'README.md'):
             lines[i] = f"- **发表了**：🎬 **{total_videos} 个作品** | **她回复了**：💬 **{author_replies} 条评论**"
         elif line.startswith('- **账号累计评论**：'):
             lines[i] = f"- **账号累计评论**：💬 **{total_comments} 条** | **累计参与人数**：👥 **{participants_count} 个**"
+        elif "三年多来累计发布" in line:
+            lines[i] = f"三年多来累计发布 {total_videos}+ 个作品，回复粉丝评论 {author_replies}+ 条，是真正用心经营粉丝关系的技术主播。"
+    
+
     
     updated_content = '\n'.join(lines)
     
