@@ -38,8 +38,8 @@ def update_readme(user_data: dict, readme_path: str = 'README.md'):
     participants_count = user_data.get('participants_count', 0)
     
     new_line_2 = f"**📌 {latest_date} **：{latest_title}"
-    if lines[1].startswith('**📌'):
-        lines[1] = new_line_2
+    if lines[0].startswith('**📌'):
+        lines[0] = new_line_2
     
     for i, line in enumerate(lines):
         if line.startswith('- **发表了**：'):
