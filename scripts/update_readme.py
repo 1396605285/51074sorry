@@ -37,8 +37,8 @@ def update_readme(user_data: dict, readme_path: str = 'README.md'):
     author_replies = user_data.get('author_replies', 0)
     participants_count = user_data.get('participants_count', 0)
     
-    new_line_2 = f"**📌 {latest_date} **：{latest_title}"
-    if lines[0].startswith('**📌'):
+    new_line_2 = f"> **📌 {latest_date} **：{latest_title}"
+    if lines[0].startswith('> **📌'):
         lines[0] = new_line_2
     
     for i, line in enumerate(lines):
