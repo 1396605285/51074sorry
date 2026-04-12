@@ -525,9 +525,35 @@
           "reply_to_username": "",
           "ip_label": "湖北",
           "create_time_str": "2026-04-12 02:59"
+        },
+        {
+          "aweme_id": "7627558294349234875",
+          "cid": "7627736076913165105",
+          "reply_id": "7627649795528377137",
+          "reply_to_reply_id": "0",
+          "text": "你老了，还有小的会顶上",
+          "create_time": "1775970703",
+          "user_nickname": "人间客",
+          "user_avatar": "avatars/2026/69a2bc8ecc0f5e267f63b43783c63fc4.jpeg",
+          "reply_to_username": "",
+          "ip_label": "广东",
+          "create_time_str": "2026-04-12 05:11"
+        },
+        {
+          "aweme_id": "7627558294349234875",
+          "cid": "7627718676410712838",
+          "reply_id": "7627649795528377137",
+          "reply_to_reply_id": "7627701993385640753",
+          "text": "热度整体已经下降啦，现在数据水分很大的[捂脸]",
+          "create_time": "1775966652",
+          "user_nickname": "古月",
+          "user_avatar": "avatars/2026/b66215c1a025e831a9abbb6ce74affc8.jpeg",
+          "reply_to_username": "🆑饭团",
+          "ip_label": "广东",
+          "create_time_str": "2026-04-12 04:04"
         }
       ],
-      "reply_count": 1
+      "reply_count": 3
     },
     {
       "aweme_id": "7627558294349234875",
@@ -956,6 +982,84 @@
       "reply_comment_total": "0",
       "ip_label": "广西",
       "create_time_str": "2026-04-12 03:01",
+      "replies": [],
+      "reply_count": 0
+    },
+    {
+      "aweme_id": "7627558294349234875",
+      "cid": "7627746346405856034",
+      "text": "[赞][赞][赞][赞][赞][赞]",
+      "create_time": "1775973095",
+      "user_nickname": "那加⁵¹⁰⁷⁴",
+      "user_avatar": "avatars/2026/656388c6e15a31d1c44fc7b033a22316.jpeg",
+      "reply_comment_total": "0",
+      "ip_label": "中国台湾",
+      "create_time_str": "2026-04-12 05:51",
+      "replies": [],
+      "reply_count": 0
+    },
+    {
+      "aweme_id": "7627558294349234875",
+      "cid": "7627729821501866810",
+      "text": "君雅怎么了..要把自己切片研究了?",
+      "create_time": "1775969246",
+      "user_nickname": "溪鱼",
+      "user_avatar": "avatars/2026/33af10b160e1e30e5632c91893b189cd.jpeg",
+      "reply_comment_total": "0",
+      "ip_label": "山东",
+      "create_time_str": "2026-04-12 04:47",
+      "replies": [],
+      "reply_count": 0
+    },
+    {
+      "aweme_id": "7627558294349234875",
+      "cid": "7627713832765014833",
+      "text": "能不能办点娱乐活动看看",
+      "create_time": "1775965523",
+      "user_nickname": "饿",
+      "user_avatar": "avatars/2026/a58348a575729ab5397e21fed8a2699a.jpeg",
+      "reply_comment_total": "0",
+      "ip_label": "江苏",
+      "create_time_str": "2026-04-12 03:45",
+      "replies": [],
+      "reply_count": 0
+    },
+    {
+      "aweme_id": "7627558294349234875",
+      "cid": "7627722313605825329",
+      "text": "我切。我切的全是张老黑嫁给我了[冷漠]",
+      "create_time": "1775967497",
+      "user_nickname": "一个从人民中走出来的普通人",
+      "user_avatar": "avatars/2026/d051701701171c5c2c4b08cc08dbec60.jpeg",
+      "reply_comment_total": "0",
+      "ip_label": "山西",
+      "create_time_str": "2026-04-12 04:18",
+      "replies": [],
+      "reply_count": 0
+    },
+    {
+      "aweme_id": "7627558294349234875",
+      "cid": "7627720361044837174",
+      "text": "我现在去学剪辑还来得及不[戳手手]",
+      "create_time": "1775967045",
+      "user_nickname": "设计橙",
+      "user_avatar": "avatars/2026/49332a18b772a6fbe8c935cca860c217.jpeg",
+      "reply_comment_total": "0",
+      "ip_label": "广东",
+      "create_time_str": "2026-04-12 04:10",
+      "replies": [],
+      "reply_count": 0
+    },
+    {
+      "aweme_id": "7627558294349234875",
+      "cid": "7627741212447474481",
+      "text": "我",
+      "create_time": "1775971898",
+      "user_nickname": "༒GZ_ZHao༂",
+      "user_avatar": "avatars/2026/5ecd361caea06e66bdba18773f2bcf89.jpeg",
+      "reply_comment_total": "0",
+      "ip_label": "四川",
+      "create_time_str": "2026-04-12 05:31",
       "replies": [],
       "reply_count": 0
     }
