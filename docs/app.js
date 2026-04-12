@@ -77,6 +77,16 @@ class App {
         return '';
     }
     
+    formatTimestamp(timestamp) {
+        if (!timestamp) return '';
+        const date = new Date(parseInt(timestamp) * 1000);
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        const hours = String(date.getHours()).padStart(2, '0');
+        const minutes = String(date.getMinutes()).padStart(2, '0');
+        return `${month}月${day}日 ${hours}:${minutes}`;
+    }
+    
     createPaginationHtml(currentPage, totalPages, totalCount, callbackTemplate) {
         if (totalPages <= 1) return '';
         
@@ -723,7 +733,7 @@ class App {
             ${imagesHtml}
             <div class="modal-desc">${this.escapeHtml(video.desc || '无描述')}</div>
             <div class="modal-meta">
-                <span>📅 时间: ${this.escapeHtml(video.create_time_str || '未知')}</span>
+                <span>📅 时间: ${this.formatDateTime(video)}</span>
                 <span>💬 评论数: ${video.comment_count || 0}</span>
             </div>
             <div class="comments-section">
@@ -891,7 +901,7 @@ class App {
                                             </span>
                                             ${reply.reply_to_username ? `<span class="reply-to">回复 @<span class="copyable" onclick="app.copyToClipboard('${this.escapeJsString(reply.reply_to_username)}', this)">${this.escapeHtml(reply.reply_to_username)}</span></span>` : ''}
                                         </div>
-                                        <span class="reply-time">${reply.create_time_str || ''}</span>
+                                        <span class="reply-time">${this.formatTimestamp(reply.create_time)}</span>
                                     </div>
                                 </div>
                                 <div class="reply-text">${replyText}</div>
@@ -915,7 +925,7 @@ class App {
                                 ${comment.ip_label ? `<span class="comment-ip">${comment.ip_label}</span>` : ''}
                             </span>
                         </div>
-                        <span class="comment-time">${comment.create_time_str || ''}</span>
+                        <span class="comment-time">${this.formatTimestamp(comment.create_time)}</span>
                     </div>
                 </div>
                 <div class="comment-text">${commentText}</div>
