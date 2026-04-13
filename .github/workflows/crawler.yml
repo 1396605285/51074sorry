@@ -34,7 +34,7 @@ jobs:
     - name: Create config files from secrets
       run: |
         echo "${{ secrets.CONFIG_YAML }}" > config.yaml
-        echo "${{ secrets.COOKIE_YAML }}" | base64 -d > cookie.yaml
+        echo "${{ secrets.COOKIE_TXT }}" | base64 -d > cookie.txt
     
     - name: Run crawler
       run: |

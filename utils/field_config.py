@@ -31,11 +31,11 @@ class UserManager:
             return {}
 
     def _load_cookie_config(self) -> Dict:
-        cookie_path = os.path.join(os.path.dirname(self.config_path), 'cookie.yaml')
+        cookie_path = os.path.join(os.path.dirname(self.config_path), 'cookie.txt')
         try:
             if os.path.exists(cookie_path):
                 with open(cookie_path, 'r', encoding='utf-8') as f:
-                    return yaml.safe_load(f) or {}
+                    return {'cookie': f.read().strip()}
         except Exception as e:
             logger.error(f"加载cookie配置文件失败: {e}")
         return {}
