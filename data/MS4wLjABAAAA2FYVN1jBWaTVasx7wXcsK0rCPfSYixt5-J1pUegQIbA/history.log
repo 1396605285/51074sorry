@@ -21,3 +21,6 @@
 2026-04-13 03:27:25 | [作品采集完成] total:10 | new:0 | new_csv:0 | new_db:0 | duration:2.7秒
 2026-04-13 03:30:25 | [评论采集完成] total:1108 | new:24 | new_csv:24 | new_db:24 | videos:10 | duration:180.6秒
 2026-04-13 03:31:34 | [回复采集完成] total:308 | new:9 | new_csv:9 | new_db:9 | comments:108 | videos:10 | duration:68.3秒
+2026-04-14 03:17:28 | [作品采集完成] total:10 | new:0 | new_csv:0 | new_db:0 | duration:3.0秒
+2026-04-14 03:20:49 | [评论采集完成] total:1117 | new:9 | new_csv:9 | new_db:9 | videos:10 | duration:200.2秒
+2026-04-14 03:21:58 | [回复采集完成] total:313 | new:5 | new_csv:5 | new_db:5 | comments:109 | videos:10 | duration:69.4秒
