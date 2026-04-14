@@ -1255,9 +1255,22 @@
           "reply_to_username": "",
           "ip_label": "贵州",
           "create_time_str": "2026-04-12 07:29"
+        },
+        {
+          "aweme_id": "7627558294349234875",
+          "cid": "7628097319695270715",
+          "reply_id": "7627766798242546469",
+          "reply_to_reply_id": "0",
+          "text": "[捂脸]",
+          "create_time": "1776054811",
+          "user_nickname": "🙏🙏🙏",
+          "user_avatar": "avatars/2026/3796aff24798734cfa9a2104e88bbea2.jpeg",
+          "reply_to_username": "",
+          "ip_label": "天津",
+          "create_time_str": "2026-04-13 04:33"
         }
       ],
-      "reply_count": 1
+      "reply_count": 2
     },
     {
       "aweme_id": "7627558294349234875",
@@ -1438,6 +1451,111 @@
       "reply_comment_total": "0",
       "ip_label": "四川",
       "create_time_str": "2026-04-12 16:16",
+      "replies": [],
+      "reply_count": 0
+    },
+    {
+      "aweme_id": "7627558294349234875",
+      "cid": "7628168534149514047",
+      "text": "愿意愿意，",
+      "create_time": "1776071392",
+      "user_nickname": "空军钓鱼佬",
+      "user_avatar": "avatars/2026/41887b7fd6c2097c410a8a4054285706.jpeg",
+      "reply_comment_total": "0",
+      "ip_label": "湖北",
+      "create_time_str": "2026-04-13 09:09",
+      "replies": [],
+      "reply_count": 0
+    },
+    {
+      "aweme_id": "7627558294349234875",
+      "cid": "7628207354270745402",
+      "text": "有个不太成熟的想法，少林功夫加唱歌跳舞，吃鸡加美女擦边",
+      "create_time": "1776080430",
+      "user_nickname": "寒岩",
+      "user_avatar": "avatars/2026/90c8d532fd42e87492b9a5105911340d.jpeg",
+      "reply_comment_total": "0",
+      "ip_label": "重庆",
+      "create_time_str": "2026-04-13 11:40",
+      "replies": [],
+      "reply_count": 0
+    },
+    {
+      "aweme_id": "7627558294349234875",
+      "cid": "7628215746535850792",
+      "text": "嘿嘿我每天有5个小时剪视频，周六周日48小时剪视频。可以授权让我剪视频吗。俺免费，抖音收益都给主播。就想学习一下大主播的游戏思路。新人剪辑感谢主播了[玫瑰][玫瑰][玫瑰]",
+      "create_time": "1776082384",
+      "user_nickname": "@樊世超",
+      "user_avatar": "avatars/2026/e5ace182a00a12a7f628e26f8b8bbe9f.jpeg",
+      "reply_comment_total": "1",
+      "ip_label": "河南",
+      "create_time_str": "2026-04-13 12:13",
+      "replies": [
+        {
+          "aweme_id": "7627558294349234875",
+          "cid": "7628278033791451931",
+          "reply_id": "7628215746535850792",
+          "reply_to_reply_id": "0",
+          "text": "不是你搁这卷啥呢",
+          "create_time": "1776096888",
+          "user_nickname": "阔口阔落不加冰",
+          "user_avatar": "avatars/2026/6b6062f5f20c8bdac114c719b3fa2775.jpeg",
+          "reply_to_username": "",
+          "ip_label": "新疆",
+          "create_time_str": "2026-04-13 16:14"
+        }
+      ],
+      "reply_count": 1
+    },
+    {
+      "aweme_id": "7627558294349234875",
+      "cid": "7628224352336937738",
+      "text": "怎么切全蛋[戳手手][戳手手][戳手手]",
+      "create_time": "1776084387",
+      "user_nickname": "ㅤㅤㅤㅤㅤ实 因 象 质 (私信永久封禁",
+      "user_avatar": "avatars/2026/5ab9c3fc15af1a12ba29f643183397b1.jpeg",
+      "reply_comment_total": "0",
+      "ip_label": "浙江",
+      "create_time_str": "2026-04-13 12:46",
+      "replies": [],
+      "reply_count": 0
+    },
+    {
+      "aweme_id": "7627558294349234875",
+      "cid": "7628254863533032235",
+      "text": "想吃脑子了[戳手手]",
+      "create_time": "1776091491",
+      "user_nickname": "🇨🇳从你的全世界路过³²🍡⁹⁵⁶",
+      "user_avatar": "avatars/2026/cd05448e3588f31dc83f9d28241afc4d.jpeg",
+      "reply_comment_total": "0",
+      "ip_label": "黑龙江",
+      "create_time_str": "2026-04-13 14:44",
+      "replies": [],
+      "reply_count": 0
+    },
+    {
+      "aweme_id": "7627558294349234875",
+      "cid": "7628097365060420389",
+      "text": "我可以",
+      "create_time": "1776054821",
+      "user_nickname": "🙏🙏🙏",
+      "user_avatar": "avatars/2026/3796aff24798734cfa9a2104e88bbea2.jpeg",
+      "reply_comment_total": "0",
+      "ip_label": "天津",
+      "create_time_str": "2026-04-13 04:33",
+      "replies": [],
+      "reply_count": 0
+    },
+    {
+      "aweme_id": "7627558294349234875",
+      "cid": "7628082390409708325",
+      "text": "哈哈哈哈哈哈哈哈哈哈哈哈好",
+      "create_time": "1776051335",
+      "user_nickname": "🌈ꦿ以后",
+      "user_avatar": "avatars/2026/e1997ee1f484d87840b5679d9803f5d0.jpeg",
+      "reply_comment_total": "0",
+      "ip_label": "浙江",
+      "create_time_str": "2026-04-13 03:35",
       "replies": [],
       "reply_count": 0
     }

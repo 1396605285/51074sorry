@@ -64,9 +64,22 @@
           "reply_to_username": "太仓进口松木批发",
           "ip_label": "湖南",
           "create_time_str": "2026-04-10 05:14"
+        },
+        {
+          "aweme_id": "7626441345066862705",
+          "cid": "7628191201074938673",
+          "reply_id": "7626594273295434554",
+          "reply_to_reply_id": "7626665029702239025",
+          "text": "居然我们这个近",
+          "create_time": "1776076669",
+          "user_nickname": "饭特稀",
+          "user_avatar": "avatars/2026/39e93cc3d7313fb3c745a2973e547b90.jpg",
+          "reply_to_username": "张全蛋。",
+          "ip_label": "四川",
+          "create_time_str": "2026-04-13 10:37"
         }
       ],
-      "reply_count": 4
+      "reply_count": 5
     },
     {
       "aweme_id": "7626441345066862705",
@@ -866,9 +879,35 @@
           "reply_to_username": "",
           "ip_label": "广东",
           "create_time_str": "2026-04-09 01:03"
+        },
+        {
+          "aweme_id": "7626441345066862705",
+          "cid": "7628088039738229504",
+          "reply_id": "7626444803613459234",
+          "reply_to_reply_id": "7626667331673916179",
+          "text": "天啦，同类人，喜欢的两个人一模一样",
+          "create_time": "1776052651",
+          "user_nickname": "小薯饼儿",
+          "user_avatar": "avatars/2026/824c965ffd81fa8c9902da91af6672e7.jpeg",
+          "reply_to_username": "卖报的小喇巴",
+          "ip_label": "湖北",
+          "create_time_str": "2026-04-13 03:57"
+        },
+        {
+          "aweme_id": "7626441345066862705",
+          "cid": "7628190478546436905",
+          "reply_id": "7626444803613459234",
+          "reply_to_reply_id": "7628088039738229504",
+          "text": "哈哈哈哈哈哈",
+          "create_time": "1776076501",
+          "user_nickname": "卖报的小喇巴",
+          "user_avatar": "avatars/2026/767b79a1103a96133b82c0a03f521f24.jpeg",
+          "reply_to_username": "小薯饼儿",
+          "ip_label": "山东",
+          "create_time_str": "2026-04-13 10:35"
         }
       ],
-      "reply_count": 6
+      "reply_count": 8
     },
     {
       "aweme_id": "7626441345066862705",
@@ -2284,6 +2323,32 @@
       "reply_comment_total": "0",
       "ip_label": "四川",
       "create_time_str": "2026-04-12 07:09",
+      "replies": [],
+      "reply_count": 0
+    },
+    {
+      "aweme_id": "7626441345066862705",
+      "cid": "7628319972670669626",
+      "text": "我靠  蛋啊 离的近啊[拜拜]",
+      "create_time": "1776106662",
+      "user_nickname": "平安喜乐",
+      "user_avatar": "avatars/2026/55de770367824e11c6eba121fa4d1c4e.jpeg",
+      "reply_comment_total": "0",
+      "ip_label": "四川",
+      "create_time_str": "2026-04-13 18:57",
+      "replies": [],
+      "reply_count": 0
+    },
+    {
+      "aweme_id": "7626441345066862705",
+      "cid": "7628166497962296074",
+      "text": "果然是成都富婆",
+      "create_time": "1776070918",
+      "user_nickname": "帕·拉",
+      "user_avatar": "avatars/2026/e7cc30cf331051f6707baf822029be71.jpeg",
+      "reply_comment_total": "0",
+      "ip_label": "广东",
+      "create_time_str": "2026-04-13 09:01",
       "replies": [],
       "reply_count": 0
     }
