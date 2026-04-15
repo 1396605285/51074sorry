@@ -1103,6 +1103,19 @@
       "create_time_str": "2026-04-12 11:25",
       "replies": [],
       "reply_count": 0
+    },
+    {
+      "aweme_id": "7624581934820144074",
+      "cid": "7628648572989063973",
+      "text": "鹦鹉热",
+      "create_time": "1776183160",
+      "user_nickname": "陪猫赏月",
+      "user_avatar": "avatars/2026/88fec92287fa33f060dc0a7beea33719.jpeg",
+      "reply_comment_total": "0",
+      "ip_label": "山东",
+      "create_time_str": "2026-04-14 16:12",
+      "replies": [],
+      "reply_count": 0
     }
   ]
 }
