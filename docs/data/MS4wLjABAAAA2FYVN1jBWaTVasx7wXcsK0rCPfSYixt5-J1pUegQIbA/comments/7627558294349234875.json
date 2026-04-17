@@ -273,9 +273,22 @@
           "reply_to_username": "张全蛋。",
           "ip_label": "广东",
           "create_time_str": "2026-04-15 16:56"
+        },
+        {
+          "aweme_id": "7627558294349234875",
+          "cid": "7629377550800929573",
+          "reply_id": "7627562917450662692",
+          "reply_to_reply_id": "7627592019473105713",
+          "text": "怎么弄",
+          "create_time": "1776352888",
+          "user_nickname": "明烁",
+          "user_avatar": "avatars/2026/aa9bf6bd249309be13ab7c1aaf58482b.jpeg",
+          "reply_to_username": "张全蛋。",
+          "ip_label": "四川",
+          "create_time_str": "2026-04-16 15:21"
         }
       ],
-      "reply_count": 14
+      "reply_count": 15
     },
     {
       "aweme_id": "7627558294349234875",
@@ -1726,6 +1739,58 @@
       "reply_comment_total": "0",
       "ip_label": "广东",
       "create_time_str": "2026-04-15 07:14",
+      "replies": [],
+      "reply_count": 0
+    },
+    {
+      "aweme_id": "7627558294349234875",
+      "cid": "7629556970973872911",
+      "text": "我可以吗？",
+      "create_time": "1776394662",
+      "user_nickname": "剪辑师🍊小橙子",
+      "user_avatar": "avatars/2026/09406bc14e81841f1fefbef64351b6d3.jpeg",
+      "reply_comment_total": "0",
+      "ip_label": "北京",
+      "create_time_str": "2026-04-17 02:57",
+      "replies": [],
+      "reply_count": 0
+    },
+    {
+      "aweme_id": "7627558294349234875",
+      "cid": "7629302907586282255",
+      "text": "君雅你好！ 我从吃鸡战场开服一直玩到现在，是忠实老玩家，粉丝牌子11级， 因为身体原因无法外出工作，长期居家，时间自由充足，可以稳定做切片工作。 做事踏实有耐心，学习能力强，愿意用心剪辑、认真打磨每一条游戏切片，服从安排、长期稳定在岗。 真心想要争取这个切片岗位机会，一定会好好努力，认真干活，绝不敷衍，恳请给我一个机会，非常感谢！",
+      "create_time": "1776335508",
+      "user_nickname": "记得跟我说晚安",
+      "user_avatar": "avatars/2026/80b850b6433f80a145a2ba3225fb10d4.jpeg",
+      "reply_comment_total": "0",
+      "ip_label": "山东",
+      "create_time_str": "2026-04-16 10:31",
+      "replies": [],
+      "reply_count": 0
+    },
+    {
+      "aweme_id": "7627558294349234875",
+      "cid": "7629296479447253817",
+      "text": "有偿是深情一吻吗[戳手手]",
+      "create_time": "1776334013",
+      "user_nickname": "罗密欧与猪开枝散叶",
+      "user_avatar": "avatars/2026/83c952a31f7875cb053853e74bd2e94a.jpeg",
+      "reply_comment_total": "0",
+      "ip_label": "广东",
+      "create_time_str": "2026-04-16 10:06",
+      "replies": [],
+      "reply_count": 0
+    },
+    {
+      "aweme_id": "7627558294349234875",
+      "cid": "7629393920841024310",
+      "text": "我来剪[耶]",
+      "create_time": "1776356701",
+      "user_nickname": "沙沙沙文聪",
+      "user_avatar": "avatars/2026/2772c1c459e9d2fb3a99c621de64764e.jpeg",
+      "reply_comment_total": "0",
+      "ip_label": "云南",
+      "create_time_str": "2026-04-16 16:25",
       "replies": [],
       "reply_count": 0
     }
