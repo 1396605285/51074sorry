@@ -3,6 +3,17 @@
   "base_url": "upload/MS4wLjABAAAA2FYVN1jBWaTVasx7wXcsK0rCPfSYixt5-J1pUegQIbA/",
   "videos": [
     {
+      "aweme_id": "7629651594590023163",
+      "desc": "前两天停电是下午没直播，今天又给我停下播了。服了！#张君雅1v4",
+      "create_time": "1776416692",
+      "create_time_str": "2026-04-17 09:04",
+      "images": [],
+      "thumb": [
+        "thumbs/2026/27e8d58bdf4ecc5bd0a8a32b6db70b4d.jpeg"
+      ],
+      "comment_count": 129
+    },
+    {
       "aweme_id": "7627558294349234875",
       "desc": "@深情（张君雅助理）",
       "create_time": "1775929308",
@@ -13,7 +24,7 @@
       "thumb": [
         "thumbs/2026/bcaa21e49efe3c84f3bd1376dc2f1c30.jpeg"
       ],
-      "comment_count": 100
+      "comment_count": 103
     },
     {
       "aweme_id": "7626903451326583537",
@@ -4658,6 +4669,6 @@
       "comment_count": 11
     }
   ],
-  "total_videos": 396,
-  "total_comments": 121391
+  "total_videos": 397,
+  "total_comments": 121548
 }

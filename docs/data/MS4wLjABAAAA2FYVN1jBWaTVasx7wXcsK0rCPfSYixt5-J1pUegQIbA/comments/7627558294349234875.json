@@ -286,9 +286,22 @@
           "reply_to_username": "张全蛋。",
           "ip_label": "四川",
           "create_time_str": "2026-04-16 15:21"
+        },
+        {
+          "aweme_id": "7627558294349234875",
+          "cid": "7629589795660890886",
+          "reply_id": "7627562917450662692",
+          "reply_to_reply_id": "7627601092276536115",
+          "text": "姐妹，是这样的，你可以很喜欢君雅，但是你喜欢她的同时，千万不要没有前提矛盾的情况下，乱说其他主播，这样容易给她招黑，如果你真的很喜欢她，陪伴他就行，之前我们就是，看一个男主播，他们家粉丝，看到人就怼，好多路人还没关注，先拉黑[捂脸]",
+          "create_time": "1776402307",
+          "user_nickname": "祁音¹²¹⁴",
+          "user_avatar": "avatars/2026/9db1aeef1789acb0f8a00084d66ae194.jpeg",
+          "reply_to_username": "无界",
+          "ip_label": "浙江",
+          "create_time_str": "2026-04-17 05:05"
         }
       ],
-      "reply_count": 15
+      "reply_count": 16
     },
     {
       "aweme_id": "7627558294349234875",
@@ -1791,6 +1804,45 @@
       "reply_comment_total": "0",
       "ip_label": "云南",
       "create_time_str": "2026-04-16 16:25",
+      "replies": [],
+      "reply_count": 0
+    },
+    {
+      "aweme_id": "7627558294349234875",
+      "cid": "7629751952200434481",
+      "text": "你直播啥啊，剪你切片[噢买尬]",
+      "create_time": "1776440059",
+      "user_nickname": "么得感情的搭子",
+      "user_avatar": "avatars/2026/9e4eef4d41261c9a189b31fb200b47c6.jpeg",
+      "reply_comment_total": "0",
+      "ip_label": "河南",
+      "create_time_str": "2026-04-17 15:34",
+      "replies": [],
+      "reply_count": 0
+    },
+    {
+      "aweme_id": "7627558294349234875",
+      "cid": "7629707444080214838",
+      "text": "我想把你切片[干饭人][干饭人][干饭人][戳手手]",
+      "create_time": "1776429697",
+      "user_nickname": "室友复盘社",
+      "user_avatar": "avatars/2026/141efb99692c07c446a1f23aab76c028.jpeg",
+      "reply_comment_total": "0",
+      "ip_label": "四川",
+      "create_time_str": "2026-04-17 12:41",
+      "replies": [],
+      "reply_count": 0
+    },
+    {
+      "aweme_id": "7627558294349234875",
+      "cid": "7629709484961596196",
+      "text": "来把这认全了，我给你切片[干饭人][干饭人] 靐齉齾龗龖鱻麤爩籲灪灩驫饢麣鱺鸞鸝癵籱爨厵驪钃讟鸜麷鬱韊靏纞虋黸驨钂钄钀麢欞欟鱹齼齽鼺鸘鸛鸚鸙鑿雧钁癴躨豔戇爧囖龞蠽黷馫驤驧驡饠饡驩驦顳讞讜蠾蠿鱷鱸齈鸕鸖鸗鑾鬤鬱飍靌靍",
+      "create_time": "1776430173",
+      "user_nickname": "室友复盘社",
+      "user_avatar": "avatars/2026/141efb99692c07c446a1f23aab76c028.jpeg",
+      "reply_comment_total": "0",
+      "ip_label": "四川",
+      "create_time_str": "2026-04-17 12:49",
       "replies": [],
       "reply_count": 0
     }
