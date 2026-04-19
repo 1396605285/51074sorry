@@ -1845,6 +1845,19 @@
       "create_time_str": "2026-04-17 12:49",
       "replies": [],
       "reply_count": 0
+    },
+    {
+      "aweme_id": "7627558294349234875",
+      "cid": "7630142341399987002",
+      "text": "我来[举手]",
+      "create_time": "1776530957",
+      "user_nickname": "超级懒爸",
+      "user_avatar": "avatars/2026/46290f94788054d14a7ec22c0f79eec8.jpeg",
+      "reply_comment_total": "0",
+      "ip_label": "湖南",
+      "create_time_str": "2026-04-18 16:49",
+      "replies": [],
+      "reply_count": 0
     }
   ]
 }
