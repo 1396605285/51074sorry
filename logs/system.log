@@ -383,3 +383,38 @@
 2026-04-18 02:54:03 | INFO     | SQLite连接已关闭: data/MS4wLjABAAAA2FYVN1jBWaTVasx7wXcsK0rCPfSYixt5-J1pUegQIbA/data.db
 2026-04-18 02:54:03 | INFO     | SQLite连接已关闭: data/MS4wLjABAAAA2FYVN1jBWaTVasx7wXcsK0rCPfSYixt5-J1pUegQIbA/data.db
 2026-04-18 02:54:03 | INFO     | 资源清理完成
+2026-04-19 03:25:23 | DEBUG    | 签名JS加载成功
+2026-04-19 03:25:28 | INFO     | SQLite数据库初始化完成: data/MS4wLjABAAAA2FYVN1jBWaTVasx7wXcsK0rCPfSYixt5-J1pUegQIbA/data.db
+2026-04-19 03:25:28 | INFO     | 开始采集用户 MS4wLjABAAAA2FYVN1jB... 的作品
+2026-04-19 03:25:31 | DEBUG    | API响应: aweme_list=10, has_more=1, max_cursor=1772528893000
+2026-04-19 03:25:32 | INFO     | 用户 MS4wLjABAAAA2FYVN1jB... [作品采集完成] total:10 | new:0 | new_csv:0 | new_db:0 | duration:4.0秒
+2026-04-19 03:25:32 | INFO     | 开始采集用户 MS4wLjABAAAA2FYVN1jB... 的评论，共 10 个视频
+2026-04-19 03:27:45 | INFO     | 保存 1 条新数据到 data/MS4wLjABAAAA2FYVN1jBWaTVasx7wXcsK0rCPfSYixt5-J1pUegQIbA/2026-04/7627558294349234875/comments.csv
+2026-04-19 03:27:45 | INFO     | 保存 1 条新数据到数据库表 comments
+2026-04-19 03:28:11 | INFO     | 保存 26 条新数据到 data/MS4wLjABAAAA2FYVN1jBWaTVasx7wXcsK0rCPfSYixt5-J1pUegQIbA/2026-04/7629651594590023163/comments.csv
+2026-04-19 03:28:11 | INFO     | 保存 26 条新数据到数据库表 comments
+2026-04-19 03:28:12 | INFO     | 用户 MS4wLjABAAAA2FYVN1jB... [评论采集完成] total:916 | new:27 | new_csv:27 | new_db:27 | videos:10 | duration:159.9秒
+2026-04-19 03:28:12 | INFO     | 开始采集用户 MS4wLjABAAAA2FYVN1jB... 的回复，共 94 条评论，10 个视频 (并发数: 3)
+2026-04-19 03:29:14 | INFO     | 保存 1 条新数据到 data/MS4wLjABAAAA2FYVN1jBWaTVasx7wXcsK0rCPfSYixt5-J1pUegQIbA/2026-04/7629651594590023163/replies.csv
+2026-04-19 03:29:14 | INFO     | 保存 1 条新数据到数据库表 replies
+2026-04-19 03:29:14 | INFO     | 用户 MS4wLjABAAAA2FYVN1jB... [回复采集完成] total:277 | new:1 | new_csv:1 | new_db:1 | comments:94 | videos:10 | duration:61.5秒
+2026-04-19 03:29:14 | INFO     | SQLite连接已关闭: data/MS4wLjABAAAA2FYVN1jBWaTVasx7wXcsK0rCPfSYixt5-J1pUegQIbA/data.db
+2026-04-19 03:29:14 | INFO     | SQLite连接已关闭: data/MS4wLjABAAAA2FYVN1jBWaTVasx7wXcsK0rCPfSYixt5-J1pUegQIbA/data.db
+2026-04-19 03:29:14 | INFO     | 资源清理完成
+2026-04-19 03:29:14 | DEBUG    | 签名JS加载成功
+2026-04-19 03:29:19 | INFO     | SQLite数据库初始化完成: data/MS4wLjABAAAA2FYVN1jBWaTVasx7wXcsK0rCPfSYixt5-J1pUegQIbA/data.db
+2026-04-19 03:29:19 | INFO     | 从数据库下载用户 MS4wLjABAAAA2FYVN1jB... 的video媒体文件
+2026-04-19 03:29:19 | INFO     | 没有需要下载的媒体文件
+2026-04-19 03:29:19 | INFO     | 从CSV下载用户 MS4wLjABAAAA2FYVN1jB... 的comment媒体文件 (共397个视频)
+2026-04-19 03:29:23 | INFO     | 更新CSV成功: 1 条记录
+2026-04-19 03:29:23 | INFO     | 更新数据库成功: 1 条记录
+2026-04-19 03:29:24 | INFO     | 更新CSV成功: 26 条记录
+2026-04-19 03:29:24 | INFO     | 更新数据库成功: 26 条记录
+2026-04-19 03:29:24 | INFO     | 完成: 2个视频有媒体需要下载, 395个视频无需下载
+2026-04-19 03:29:24 | INFO     | 从CSV下载用户 MS4wLjABAAAA2FYVN1jB... 的reply媒体文件 (共397个视频)
+2026-04-19 03:29:25 | INFO     | 更新CSV成功: 1 条记录
+2026-04-19 03:29:25 | INFO     | 更新数据库成功: 1 条记录
+2026-04-19 03:29:25 | INFO     | 完成: 1个视频有媒体需要下载, 396个视频无需下载
+2026-04-19 03:29:25 | INFO     | SQLite连接已关闭: data/MS4wLjABAAAA2FYVN1jBWaTVasx7wXcsK0rCPfSYixt5-J1pUegQIbA/data.db
+2026-04-19 03:29:25 | INFO     | SQLite连接已关闭: data/MS4wLjABAAAA2FYVN1jBWaTVasx7wXcsK0rCPfSYixt5-J1pUegQIbA/data.db
+2026-04-19 03:29:25 | INFO     | 资源清理完成
