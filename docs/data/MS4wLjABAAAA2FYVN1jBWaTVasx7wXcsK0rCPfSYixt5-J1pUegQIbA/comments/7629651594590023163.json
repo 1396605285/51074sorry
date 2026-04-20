@@ -169,9 +169,22 @@
           "reply_to_username": "",
           "ip_label": "广西",
           "create_time_str": "2026-04-17 12:03"
+        },
+        {
+          "aweme_id": "7629651594590023163",
+          "cid": "7630315856941679412",
+          "reply_id": "7629693550695072512",
+          "reply_to_reply_id": "7629697732874568475",
+          "text": "出生岛太远了，交通不方便[看]",
+          "create_time": "1776571354",
+          "user_nickname": "月 蒙（限流版）",
+          "user_avatar": "avatars/2026/b1834b8579634c4920db01f0c83443a7.jpeg",
+          "reply_to_username": "林",
+          "ip_label": "广东",
+          "create_time_str": "2026-04-19 04:02"
         }
       ],
-      "reply_count": 1
+      "reply_count": 2
     },
     {
       "aweme_id": "7629651594590023163",
@@ -562,9 +575,35 @@
           "reply_to_username": "",
           "ip_label": "浙江",
           "create_time_str": "2026-04-17 12:09"
+        },
+        {
+          "aweme_id": "7629651594590023163",
+          "cid": "7630661513557590833",
+          "reply_id": "7629694483391038266",
+          "reply_to_reply_id": "0",
+          "text": "500万以上存款是有的",
+          "create_time": "1776651836",
+          "user_nickname": "浮生乱了流年",
+          "user_avatar": "avatars/2026/acfddd444ee501a7067133e17237af39.jpeg",
+          "reply_to_username": "",
+          "ip_label": "陕西",
+          "create_time_str": "2026-04-20 02:23"
+        },
+        {
+          "aweme_id": "7629651594590023163",
+          "cid": "7630375078157239091",
+          "reply_id": "7629694483391038266",
+          "reply_to_reply_id": "0",
+          "text": "首付？把格局打开[捂脸]",
+          "create_time": "1776585143",
+          "user_nickname": "ᝰꫛ鹏程ಇ᭄万里࿐",
+          "user_avatar": "avatars/2026/5eae4232ba315ecf678dbf1334db17f3.jpeg",
+          "reply_to_username": "",
+          "ip_label": "IP未知",
+          "create_time_str": "2026-04-19 07:52"
         }
       ],
-      "reply_count": 6
+      "reply_count": 8
     },
     {
       "aweme_id": "7629651594590023163",
@@ -2346,6 +2385,85 @@
       "reply_comment_total": "0",
       "ip_label": "四川",
       "create_time_str": "2026-04-18 05:33",
+      "replies": [],
+      "reply_count": 0
+    },
+    {
+      "aweme_id": "7629651594590023163",
+      "cid": "7630669395274138417",
+      "text": "你离468离得近，每天去塔尖直播不就好了",
+      "create_time": "1776653669",
+      "user_nickname": "好多魚",
+      "user_avatar": "avatars/2026/1a09ddde61e5dfed69a356a2c7f1c2fa.jpeg",
+      "reply_comment_total": "0",
+      "ip_label": "新疆",
+      "create_time_str": "2026-04-20 02:54",
+      "replies": [],
+      "reply_count": 0
+    },
+    {
+      "aweme_id": "7629651594590023163",
+      "cid": "7630323632787063611",
+      "text": "考虑一下买个房呗",
+      "create_time": "1776573164",
+      "user_nickname": "烽行天下",
+      "user_avatar": "avatars/2026/da3d5397cbd7ff8a5bf70e8a9f06f634.jpeg",
+      "reply_comment_total": "1",
+      "ip_label": "湖北",
+      "create_time_str": "2026-04-19 04:32",
+      "replies": [
+        {
+          "aweme_id": "7629651594590023163",
+          "cid": "7630323712630047525",
+          "reply_id": "7630323632787063611",
+          "reply_to_reply_id": "0",
+          "text": "二手房还不贬值那种",
+          "create_time": "1776573183",
+          "user_nickname": "烽行天下",
+          "user_avatar": "avatars/2026/da3d5397cbd7ff8a5bf70e8a9f06f634.jpeg",
+          "reply_to_username": "",
+          "ip_label": "湖北",
+          "create_time_str": "2026-04-19 04:33"
+        }
+      ],
+      "reply_count": 1
+    },
+    {
+      "aweme_id": "7629651594590023163",
+      "cid": "7630307588928537403",
+      "text": "来我这不收房租[捂脸]",
+      "create_time": "1776569429",
+      "user_nickname": "🥰🌈🌈🌈隔壁王叔🌈🌈🌈😘",
+      "user_avatar": "avatars/2026/a89810847d813016c49dfbad3b3d365b.jpeg",
+      "reply_comment_total": "0",
+      "ip_label": "河北",
+      "create_time_str": "2026-04-19 03:30",
+      "replies": [],
+      "reply_count": 0
+    },
+    {
+      "aweme_id": "7629651594590023163",
+      "cid": "7630489091864724273",
+      "text": "搬家吧",
+      "create_time": "1776611689",
+      "user_nickname": "卋罖",
+      "user_avatar": "avatars/2026/8f984df249711e12c5025c6ab3914a2c.jpeg",
+      "reply_comment_total": "0",
+      "ip_label": "内蒙古",
+      "create_time_str": "2026-04-19 15:14",
+      "replies": [],
+      "reply_count": 0
+    },
+    {
+      "aweme_id": "7629651594590023163",
+      "cid": "7630409774803747621",
+      "text": "买房[偷笑][偷笑][偷笑]",
+      "create_time": "1776593222",
+      "user_nickname": "@台球神@",
+      "user_avatar": "avatars/2026/b6b30e25c71983aed0d94e99ce832100.jpeg",
+      "reply_comment_total": "0",
+      "ip_label": "北京",
+      "create_time_str": "2026-04-19 10:07",
       "replies": [],
       "reply_count": 0
     }

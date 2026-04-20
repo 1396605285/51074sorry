@@ -1307,9 +1307,22 @@
           "reply_to_username": "",
           "ip_label": "天津",
           "create_time_str": "2026-04-13 04:33"
+        },
+        {
+          "aweme_id": "7627558294349234875",
+          "cid": "7630508058187793189",
+          "reply_id": "7627766798242546469",
+          "reply_to_reply_id": "0",
+          "text": "这个好 潇潇洒洒   每天都是天地悠悠过客匆匆 潮起又潮落……何不潇洒走一回[鼓掌][鼓掌][鼓掌]",
+          "create_time": "1776616106",
+          "user_nickname": "兔地",
+          "user_avatar": "avatars/2026/3cd72f166ccfd08bcf7f80e2b435b5a1.jpeg",
+          "reply_to_username": "",
+          "ip_label": "四川",
+          "create_time_str": "2026-04-19 16:28"
         }
       ],
-      "reply_count": 2
+      "reply_count": 3
     },
     {
       "aweme_id": "7627558294349234875",
@@ -1858,6 +1871,33 @@
       "create_time_str": "2026-04-18 16:49",
       "replies": [],
       "reply_count": 0
+    },
+    {
+      "aweme_id": "7627558294349234875",
+      "cid": "7630369180001420081",
+      "text": "蹲一个能剪影视解说的",
+      "create_time": "1776583770",
+      "user_nickname": "旸旸",
+      "user_avatar": "avatars/2026/a8ff31eab2e3d07d0b8f3d36bd89e468.jpeg",
+      "reply_comment_total": "1",
+      "ip_label": "河北",
+      "create_time_str": "2026-04-19 07:29",
+      "replies": [
+        {
+          "aweme_id": "7627558294349234875",
+          "cid": "7630369211012891449",
+          "reply_id": "7630369180001420081",
+          "reply_to_reply_id": "0",
+          "text": "需要自己写文案",
+          "create_time": "1776583776",
+          "user_nickname": "旸旸",
+          "user_avatar": "avatars/2026/a8ff31eab2e3d07d0b8f3d36bd89e468.jpeg",
+          "reply_to_username": "",
+          "ip_label": "河北",
+          "create_time_str": "2026-04-19 07:29"
+        }
+      ],
+      "reply_count": 1
     }
   ]
 }
