@@ -1142,6 +1142,19 @@
       "create_time_str": "2026-04-21 17:10",
       "replies": [],
       "reply_count": 0
+    },
+    {
+      "aweme_id": "7624581934820144074",
+      "cid": "7631571105589199626",
+      "text": "你吃它呀",
+      "create_time": "1776863613",
+      "user_nickname": "莓柿叭",
+      "user_avatar": "avatars/2026/9ff321200e1e341d324f5cadf11137a6.jpeg",
+      "reply_comment_total": "0",
+      "ip_label": "广东",
+      "create_time_str": "2026-04-22 13:13",
+      "replies": [],
+      "reply_count": 0
     }
   ]
 }
