@@ -116,9 +116,22 @@
           "reply_to_username": "张全蛋。",
           "ip_label": "广东",
           "create_time_str": "2026-04-23 03:44"
+        },
+        {
+          "aweme_id": "7631634541144461489",
+          "cid": "7632254322060280633",
+          "reply_id": "7631635677198058298",
+          "reply_to_reply_id": "7631636792428741435",
+          "text": "夫人我爱你[玫瑰][比心]",
+          "create_time": "1777022689",
+          "user_nickname": "期待",
+          "user_avatar": "avatars/2026/c83eceeafc6b0f72ad95e2d2107bb0f1.jpeg",
+          "reply_to_username": "张全蛋。",
+          "ip_label": "北京",
+          "create_time_str": "2026-04-24 09:24"
         }
       ],
-      "reply_count": 6
+      "reply_count": 7
     },
     {
       "aweme_id": "7631634541144461489",
@@ -169,9 +182,22 @@
           "reply_to_username": "张全蛋。",
           "ip_label": "海南",
           "create_time_str": "2026-04-22 18:54"
+        },
+        {
+          "aweme_id": "7631634541144461489",
+          "cid": "7632523161128698683",
+          "reply_id": "7631637531268367163",
+          "reply_to_reply_id": "7631642127223505713",
+          "text": "把他炸了",
+          "create_time": "1777085282",
+          "user_nickname": "神时衍",
+          "user_avatar": "avatars/2026/ee3c3244bd51e07185c18399307cedd6.jpeg",
+          "reply_to_username": "张全蛋。",
+          "ip_label": "广东",
+          "create_time_str": "2026-04-25 02:48"
         }
       ],
-      "reply_count": 3
+      "reply_count": 4
     },
     {
       "aweme_id": "7631634541144461489",

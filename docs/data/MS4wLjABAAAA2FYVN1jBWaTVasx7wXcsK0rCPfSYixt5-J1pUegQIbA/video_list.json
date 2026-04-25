@@ -13,7 +13,7 @@
       "thumb": [
         "thumbs/2026/0a2d982e118a8a00210c2dc7b8ab9a4f.jpeg"
       ],
-      "comment_count": 33
+      "comment_count": 36
     },
     {
       "aweme_id": "7631634541144461489",
@@ -37,7 +37,7 @@
       "thumb": [
         "thumbs/2026/27e8d58bdf4ecc5bd0a8a32b6db70b4d.jpeg"
       ],
-      "comment_count": 180
+      "comment_count": 181
     },
     {
       "aweme_id": "7627558294349234875",
@@ -50,7 +50,7 @@
       "thumb": [
         "thumbs/2026/bcaa21e49efe3c84f3bd1376dc2f1c30.jpeg"
       ],
-      "comment_count": 106
+      "comment_count": 107
     },
     {
       "aweme_id": "7626903451326583537",
@@ -4696,5 +4696,5 @@
     }
   ],
   "total_videos": 399,
-  "total_comments": 121717
+  "total_comments": 121726
 }

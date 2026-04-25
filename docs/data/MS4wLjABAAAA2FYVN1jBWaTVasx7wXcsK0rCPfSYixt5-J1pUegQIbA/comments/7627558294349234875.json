@@ -1924,6 +1924,33 @@
       "create_time_str": "2026-04-21 17:10",
       "replies": [],
       "reply_count": 0
+    },
+    {
+      "aweme_id": "7627558294349234875",
+      "cid": "7632319587145925414",
+      "text": "连续看了你三四年，我都快大学毕业了你才找[摊手]真服了雅[捂脸]之前看你的直播手机电脑录屏了好多，但是旧手机主板烧了都换新手机了[尬笑]素材都没了",
+      "create_time": "1777037883",
+      "user_nickname": "？ ？？",
+      "user_avatar": "avatars/2026/36c0ebaa5d0b4e0d19187a0d204053da.jpeg",
+      "reply_comment_total": "1",
+      "ip_label": "四川",
+      "create_time_str": "2026-04-24 13:38",
+      "replies": [
+        {
+          "aweme_id": "7627558294349234875",
+          "cid": "7632432685713130289",
+          "reply_id": "7632319587145925414",
+          "reply_to_reply_id": "0",
+          "text": "之前也找啊[懵]",
+          "create_time": "1777064221",
+          "user_nickname": "张全蛋。",
+          "user_avatar": "avatars/2026/a3ff0de2f5b383264ae8e18260e0e0f6.jpeg",
+          "reply_to_username": "",
+          "ip_label": "四川",
+          "create_time_str": "2026-04-24 20:57"
+        }
+      ],
+      "reply_count": 1
     }
   ]
 }
