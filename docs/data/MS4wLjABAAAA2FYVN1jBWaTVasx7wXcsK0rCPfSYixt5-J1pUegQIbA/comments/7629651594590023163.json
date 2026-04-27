@@ -601,9 +601,22 @@
           "reply_to_username": "",
           "ip_label": "IP未知",
           "create_time_str": "2026-04-19 07:52"
+        },
+        {
+          "aweme_id": "7629651594590023163",
+          "cid": "7633030674501600050",
+          "reply_id": "7629694483391038266",
+          "reply_to_reply_id": "0",
+          "text": "你看不起谁啊[发呆]……礼物广告合约够成都两套房了，她是要买别墅而且全款",
+          "create_time": "1777203447",
+          "user_nickname": "呆子",
+          "user_avatar": "avatars/2026/a3a1c4106a9606146aa274c769b6154a.jpeg",
+          "reply_to_username": "",
+          "ip_label": "四川",
+          "create_time_str": "2026-04-26 11:37"
         }
       ],
-      "reply_count": 8
+      "reply_count": 9
     },
     {
       "aweme_id": "7629651594590023163",
